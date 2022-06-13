@@ -11,7 +11,6 @@ def picture_file(name)
 end
 
 Book.destroy_all
-User.destroy_all
 
 Book.create!(
   title: 'Ruby超入門',
