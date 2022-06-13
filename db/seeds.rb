@@ -46,7 +46,7 @@ end
 50.times.each do |n|
   User.create!(
     name: "test#{n + 1}",
-    email: "test#{n + 1}@example.com",
+    email: "test#{n + 1}@example.co.jp",
     password: 'p@ssw0rd',
     postal_code: '123-4567',
     address: '東京都新宿区',
