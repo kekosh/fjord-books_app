@@ -16,3 +16,6 @@ ja:
         address: 住所
         self_introduction: 自己紹介文
         icon: アイコン
+  errors:
+    messages:
+      content_type_invalid: は無効な拡張子です。
