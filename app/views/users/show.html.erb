@@ -11,6 +11,13 @@
 </p>
 
 <p>
+  <strong><%= User.human_attribute_name(:icon)%>:</strong>
+</p>
+<p>
+  <%= image_tag @user.icon.variant(resize: '30x30'),style:"border-radius:50%;" %>
+</p>
+
+<p>
   <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
   <%= @user.postal_code %>
 </p>
