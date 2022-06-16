@@ -7,6 +7,13 @@
   <%= f.label :icon %>
   <%= f.file_field :icon %>
 </div>
+<div>
+  <% if @user.icon.attached? %>
+    <%= image_tag @user.icon.variant(resize: '30x30'), style:'border-radius:50%;' %>
+  <% else %>
+    <p>アイコン未設定</p>
+  <% end %>
+</div>
 
 <div class="field">
   <%= f.label :postal_code %>
