@@ -8,7 +8,7 @@
   <%= f.file_field :icon %>
 </div>
 <div>
-  <% if @user.icon.attached? %>
+  <% if @user.icon.attached? && @user.icon.attachment.blob.present? && @user.icon.attachment.blob.persisted? %>
     <%= image_tag @user.icon.variant(resize: '30x30'), style:'border-radius:50%;' %>
   <% else %>
     <p>アイコン未設定</p>
