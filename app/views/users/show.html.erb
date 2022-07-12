@@ -4,10 +4,13 @@
   <%= "Followings：#{@user.followings.size}" %>&nbsp;
   <%= "Followers：#{@user.followers.size}" %>
 </div>
-<div>
-  <%= link_to 'Follow', method: :post %>&nbsp;
-  <%= link_to 'UnFollow', method: :post %>
-</div>
+
+<% if current_user.id != @user.id %>
+  <div>
+    <%= link_to 'Follow', method: :post %>&nbsp;
+    <%= link_to 'UnFollow', method: :post %>
+  </div>
+<% end %>
 
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
