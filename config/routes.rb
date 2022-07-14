@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :books
   resources :users, only: %i(index show)
 
+  resources :follow_relationships, only: %i{create destroy}
+
   get 'users/:user_id/followings', to: 'users#followings', as: 'followings'
   get 'users/:user_id/followers', to: 'users#followers', as: 'followers'
 end
