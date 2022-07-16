@@ -20,7 +20,7 @@ class User < ApplicationRecord
     FollowRelationship.where(follower_id: follower_id, followed_id: followed_id).delete_all
   end
 
-  def followed?(follower_id, followed_id)
+  def following?(follower_id, followed_id)
     FollowRelationship.where(follower_id: follower_id, followed_id: followed_id).exists?
   end
 
