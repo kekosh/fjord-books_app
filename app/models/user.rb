@@ -16,8 +16,12 @@ class User < ApplicationRecord
     FollowRelationship.create(follower_id:follower_id, followed_id:followed_id)
   end
 
-  # def unfollow(follower_id, followed_id)
-  #   FollowRelationship
-  # end
+  def unfollow(follower_id, followed_id)
+    FollowRelationship.where(follower_id: follower_id, followed_id: followed_id).delete_all
+  end
+
+  def followed?(follower_id, followed_id)
+    FollowRelationship.where(follower_id: follower_id, followed_id: followed_id).exists?
+  end
 
 end

@@ -6,10 +6,13 @@
 </div>
 
 <% if current_user.id != @user.id %>
-  <div>
-    <%= link_to 'Follow', user_follow_relationships_path(@user.id), method: :post %>&nbsp;
-    <%= link_to 'UnFollow', method: :delete %>
-  </div>
+    <div>
+        <% if current_user.followed?(current_user.id, params[:id]) %>
+          <%= link_to 'UnFollow', user_follow_relationships_path(params[:id]), method: :delete %>
+        <% else %>
+          <%= link_to 'Follow', user_follow_relationships_path(params[:id]), method: :post %>
+        <% end %>
+    </div>
 <% end %>
 
 <p>
