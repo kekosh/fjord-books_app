@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resource :follow_relationships, only: %i{create destroy}
   end
 
-  get 'users/:user_id/followings', to: 'users#followings', as: 'followings'
-  get 'users/:user_id/followers', to: 'users#followers', as: 'followers'
+  get 'users/:user_id/followings', to: 'follow_relationships#followings', as: 'followings'
+  get 'users/:user_id/followers', to: 'follow_relationships#followers', as: 'followers'
 end
