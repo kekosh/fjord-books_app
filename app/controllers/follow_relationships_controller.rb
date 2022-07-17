@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FollowRelationshipsController < ApplicationController
   before_action :set_user, only: %i[followings followers]
 
@@ -26,5 +28,4 @@ class FollowRelationshipsController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
-
 end
