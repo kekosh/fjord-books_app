@@ -1,14 +1,14 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
 
 <div>
-  <%= link_to "Followings: #{@user.followings.size}", followings_path(params[:id]) %>&nbsp;
-  <%= link_to "Followers: #{@user.followers.size}", followers_path(params[:id]) %>
+  <%= link_to t('views.common.items.Followings', count: @user.followings.size), followings_path(params[:id]) %>&nbsp;
+  <%= link_to t('views.common.items.Followers', count: @user.followers.size), followers_path(params[:id]) %>
 
   <% if current_user.id != @user.id %>
     <% if current_user.following?(current_user.id, params[:id]) %>
-      <%= link_to 'UnFollow', user_follow_relationships_path(params[:id]), method: :delete, style: 'background-color:red; color:white; border-radius:20px; padding:5px;' %>
+      <%= link_to t('views.common.items.UnFollow'), user_follow_relationships_path(params[:id]), method: :delete, style: 'background-color:red; color:white; border-radius:20px; padding:5px; margin-left:10px;' %>
     <% else %>
-      <%= link_to 'Follow', user_follow_relationships_path(params[:id]), method: :post, style: 'background-color:darkblue; color:white; border-radius:20px; padding:5px;' %>
+      <%= link_to t('views.common.items.Follow'), user_follow_relationships_path(params[:id]), method: :post, style: 'background-color:darkblue; color:white; border-radius:20px; padding:5px; margin-left:10px;' %>
     <% end %>
   <% end %>
 </div>

@@ -15,12 +15,10 @@ class FollowRelationshipsController < ApplicationController
 
   def followings
     @users = @user.followings
-    render 'show'
   end
 
   def followers
     @users = @user.followers
-    render 'show'
   end
 
   private
