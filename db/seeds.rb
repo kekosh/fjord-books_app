@@ -76,4 +76,17 @@ User.order(:id).each.with_index(1) do |user, n|
   user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
 end
 
+FollowRelationship.destroy_all
+
+def take_followed_id(follower_id)
+  followed_id = rand(1..20)
+  followed_id = rand(1..20) while follower_id == followed_id
+  followed_id
+end
+
+50.times do |follower_id|
+  followed_id = take_followed_id(follower_id)
+  FollowRelationship.create(follower_id: follower_id, followed_id: followed_id)
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
