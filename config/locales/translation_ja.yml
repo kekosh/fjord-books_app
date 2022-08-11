@@ -16,3 +16,15 @@ ja:
         address: 住所
         self_introduction: 自己紹介文
         avatar: ユーザ画像
+
+  views:
+    common:
+      header:
+        Followings: フォロー一覧
+        Followers: フォロワー一覧
+      items:
+        Follow: フォロー
+        Follower: フォロワー
+        "Followings": "フォロー:%{count}"
+        "Followers": "フォロワー:%{count}"
+        UnFollow: フォロー解除
