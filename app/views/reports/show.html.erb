@@ -18,3 +18,17 @@
   <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
 <% end %>
 <%= link_to t('views.common.back'), reports_path %>
+
+<hr>
+<% if @report.comments.size.zero? %>
+  No Data
+<% else %>
+  <% @report.comments.each do |comment| %>
+    <div>
+      <%= comment.title %>
+    </div>
+    <div>
+      <%= comment.content %>
+    </div>
+  <% end %>
+<% end %>
