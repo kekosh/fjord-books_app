@@ -1,0 +1,15 @@
+.comment_field{
+    background-color: snow;
+}
+
+.comment_user_field{
+    float: left;
+}
+
+.comment_createdAt_field{
+    float: right;
+}
+
+.comment_content_field{
+    clear: both;
+}

@@ -25,8 +25,10 @@
   No Data
 <% else %>
   <% @report.comments.each do |comment| %>
-    <div>
-      <%= comment.content %>
+    <div class="comment_field">
+      <div class="comment_user_field"><%= comment.user.name %></div>
+      <div class="comment_createdAt_field"><%= comment.created_at %></div>
+      <p class="comment_content_field"><%= comment.content %></p>
     </div>
   <% end %>
 <% end %>
