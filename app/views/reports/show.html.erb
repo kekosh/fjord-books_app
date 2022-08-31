@@ -23,7 +23,9 @@
 <%# 照会 %>
 <hr>
 <% if @report.comments.size.zero? %>
-  No Data
+  <div class="field">
+    <%= t('views.common.nocomment') %>
+  </div>
 <% else %>
   <% @report.comments.each do |comment| %>
     <div class="comment_field">
@@ -41,3 +43,16 @@
 <% end %>
 
 <%#　追加　%>
+<%= form_with(model: [@report, @report.comments.new], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, required: true %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <div class="field">
+    <%= form.submit %>
+  </div>
+
+<% end %>
