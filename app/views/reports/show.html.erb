@@ -20,6 +20,7 @@
 <%= link_to t('views.common.back'), reports_path %>
 
 <%# コメント %>
+<%# 照会 %>
 <hr>
 <% if @report.comments.size.zero? %>
   No Data
@@ -38,3 +39,5 @@
     </div>
   <% end %>
 <% end %>
+
+<%#　追加　%>
