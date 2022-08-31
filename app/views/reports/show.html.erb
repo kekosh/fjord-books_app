@@ -26,9 +26,15 @@
 <% else %>
   <% @report.comments.each do |comment| %>
     <div class="comment_field">
-      <div class="comment_user_field"><%= comment.user.name %></div>
-      <div class="comment_createdAt_field"><%= comment.created_at %></div>
-      <p class="comment_content_field"><%= comment.content %></p>
+      <div class="comment_user_field">
+        <%= comment.user.take_name_or_email(comment.user_id)%>
+      </div>
+      <div class="comment_createdAt_field">
+        <%= l(comment.created_at, format: :long) %>
+      </div>
+      <p class="comment_content_field">
+        <%= comment.content %>
+      </p>
     </div>
   <% end %>
 <% end %>
