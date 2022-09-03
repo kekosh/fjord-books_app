@@ -25,5 +25,8 @@ ja:
       comment:
         content: 内容
   views:
+    report:
+      index:
+        posted: 投稿者
     common:
       nocomment: コメントはありません。
