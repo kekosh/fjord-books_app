@@ -36,7 +36,7 @@
         <%= l(comment.created_at, format: :long) %>
       </div>
       <p class="comment_content_field">
-        <%= comment.content %>
+        <%= safe_join(comment.content.split("\n"), tag(:br)) %>
       </p>
     </div>
   <% end %>

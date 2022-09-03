@@ -35,10 +35,6 @@ class User < ApplicationRecord
 
   def take_name_or_email(user_id)
     @user = User.find_by(id: user_id)
-    if @user.name.blank?
-      @user.email
-    else
-      @user.name
-    end
+    @user.name.presence || @user.email
   end
 end
