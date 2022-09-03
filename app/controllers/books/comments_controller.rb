@@ -7,7 +7,7 @@ class Books::CommentsController < ApplicationController
     @book = Book.find(params[:book_id])
     @comment = @book.comments.new(comment_params)
     @comment.save
-    redirect_to book_path(params[:book_id]) ,notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    redirect_to book_path(params[:book_id]), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
   end
 end
 
