@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-class CommentsController < ApplicationController
+class Reports::CommentsController < ApplicationController
   before_action :comment_params, only: %i[create]
 
   def create
     @report = Report.find(params[:report_id])
     @comment = @report.comments.new(comment_params)
     @comment.save
-    redirect_to report_path(params[:report_id])
+    redirect_to report_path(params[:report_id]), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
   end
 end
 
