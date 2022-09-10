@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def take_name_or_email(user_id)
-    @user = User.find_by(id: user_id)
+    @user = User.find(user_id)
     @user.name.presence || @user.email
   end
 end
