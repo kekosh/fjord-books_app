@@ -24,7 +24,7 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
 
-    if @report.save
+    if @report.save!
       redirect_to @report, notice: t('controllers.common.notice_create', name: @report_name)
     else
       render :new, status: :unprocessable_entity
