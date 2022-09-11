@@ -6,7 +6,7 @@
     <%= t('views.common.nocomment') %>
   </div>
 <% else %>
-  <% instance.comments.each do |comment| %>
+  <% instance.comments.order(:id).each do |comment| %>
     <div class="comment_field">
       <div class="comment_user_field">
         <%= comment.user.take_name_or_email(comment.user_id)%>
