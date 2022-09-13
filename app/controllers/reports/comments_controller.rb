@@ -5,8 +5,8 @@ class Reports::CommentsController < CommentsController
 
   def create
     @report = Report.find(params[:report_id])
-    @comment = @report.comments.new(comment_params)
-    @comment.save!
-    redirect_to report_path(params[:report_id]), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    @instance = @report
+
+    save_and_redirect(@instance)
   end
 end
