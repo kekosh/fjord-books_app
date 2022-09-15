@@ -3,10 +3,10 @@
 class CommentsController < ApplicationController
   private
 
-  def save_and_redirect(instance)
-    @comment = instance.comments.new(comment_params)
+  def create
+    @comment = @commentable.comments.new(comment_params)
     @comment.save!
-    redirect_to instance, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
   end
 
   def comment_params

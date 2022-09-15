@@ -5,8 +5,7 @@ class Books::CommentsController < CommentsController
 
   def create
     @book = Book.find(params[:book_id])
-    @instance = @book
-
-    save_and_redirect(@instance)
+    @commentable = @book
+    super
   end
 end

@@ -5,8 +5,7 @@ class Reports::CommentsController < CommentsController
 
   def create
     @report = Report.find(params[:report_id])
-    @instance = @report
-
-    save_and_redirect(@instance)
+    @commentable = @report
+    super
   end
 end
