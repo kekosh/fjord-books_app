@@ -1,0 +1,37 @@
+<%# コメント %>
+<%# 照会 %>
+<hr>
+<% if instance.comments.size.zero? %>
+  <div class="field">
+    <%= t('views.common.nocomment') %>
+  </div>
+<% else %>
+  <% instance.comments.order(:id).each do |comment| %>
+    <div class="comment_field">
+      <div class="comment_user_field">
+        <%= comment.user.take_name_or_email(comment.user_id)%>
+      </div>
+      <div class="comment_createdAt_field">
+        <%= l(comment.created_at, format: :long) %>
+      </div>
+      <p class="comment_content_field">
+        <%= safe_join(comment.content.split("\n"), tag(:br)) %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+
+<%#　追加　%>
+<%= form_with(model: [instance, instance.comments.new], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, required: true %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <div class="field">
+    <%= form.submit %>
+  </div>
+
+<% end %>
