@@ -14,8 +14,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'should_can_follow_other_user' do
-    follower = User.create(name: 'Alice', email: 'alice@example.com', password: 'password')
-    followed = User.create(name: 'Bob', email: 'bob@example.com', password: 'password')
+    follower = User.create!(name: 'Gori', email: 'gori@example.com', password: 'password')
+    followed = User.create!(name: 'Dave', email: 'dave@example.com', password: 'password')
 
     assert_not follower.following?(followed)
     follower.follow(followed)
@@ -23,21 +23,21 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'should_can_show_followed_users' do
-    followed_alice = User.create(name: 'Alice', email: 'alice@example.com', password: 'password')
-    follower_bob = User.create(name: 'Bob', email: 'bob@example.com', password: 'password')
-    follower_carol = User.create(name: 'Carol', email: 'carol@example.com', password: 'password')
+    followed_edy = User.create!(name: 'Edy', email: 'edy@example.com', password: 'password')
+    follower_fanis = User.create!(name: 'Fanis', email: 'fanis@example.com', password: 'password')
+    follower_gori = User.create!(name: 'Gori', email: 'Gori@example.com', password: 'password')
 
-    assert_not followed_alice.followed_by?(follower_bob)
-    assert_not followed_alice.followed_by?(follower_carol)
-    follower_bob.follow(followed_alice)
-    follower_carol.follow(followed_alice)
-    assert followed_alice.followed_by?(follower_bob)
-    assert followed_alice.followed_by?(follower_carol)
+    assert_not followed_edy.followed_by?(follower_fanis)
+    assert_not followed_edy.followed_by?(follower_gori)
+    follower_fanis.follow(followed_edy)
+    follower_gori.follow(followed_edy)
+    assert followed_edy.followed_by?(follower_fanis)
+    assert followed_edy.followed_by?(follower_gori)
   end
 
   test 'follower_can_unfollow' do
-    follower = User.create(name: 'Alice', email: 'alice@example.com', password: 'password')
-    followed = User.create(name: 'Bob', email: 'bob@example.com', password: 'password')
+    follower = User.create!(name: 'Edy', email: 'edy@example.com', password: 'password')
+    followed = User.create!(name: 'Fanis', email: 'fanis@example.com', password: 'password')
     follower.follow(followed)
     assert followed.followed_by?(follower)
 
