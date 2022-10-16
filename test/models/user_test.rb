@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal('Bar bar', user.name_or_email)
   end
 
-  test 'should_can_follow_other_user' do
+  test 'can_follow_other_user' do
     follower = User.create!(name: 'Gori', email: 'gori@example.com', password: 'password')
     followed = User.create!(name: 'Dave', email: 'dave@example.com', password: 'password')
 
@@ -22,7 +22,7 @@ class UserTest < ActiveSupport::TestCase
     assert follower.following?(followed)
   end
 
-  test 'should_can_show_followed_users' do
+  test 'can_show_followed_users' do
     followed_edy = User.create!(name: 'Edy', email: 'edy@example.com', password: 'password')
     follower_fanis = User.create!(name: 'Fanis', email: 'fanis@example.com', password: 'password')
     follower_gori = User.create!(name: 'Gori', email: 'Gori@example.com', password: 'password')
