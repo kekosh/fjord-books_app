@@ -25,10 +25,14 @@ class ReportsTest < ApplicationSystemTestCase
     click_link '新規作成'
     assert_selector 'h1', text: '日報の新規作成'
 
-    fill_in 'タイトル', with: '１日目の日報'
-    fill_in '内容', with: '１日目の日報'
+    fill_in 'タイトル', with: '１日目の日報のタイトル'
+    fill_in '内容', with: '１日目の日報の内容'
     click_on '登録する'
     assert_text '日報が作成されました。'
+
+    # 登録したデータの結果確認
+    assert_text '１日目の日報のタイトル'
+    assert_text  '１日目の日報の内容'
   end
 
   # 日報の編集ができること
@@ -36,10 +40,14 @@ class ReportsTest < ApplicationSystemTestCase
     login
     click_link '日報'
     click_link '編集'
-    fill_in 'タイトル', with: '１日目の日報（編集後）'
-    fill_in '内容', with: '１日目の日報（編集後）'
+    fill_in 'タイトル', with: '１日目の日報のタイトル（編集後）'
+    fill_in '内容', with: '１日目の日報の内容（編集後）'
     click_button '更新する'
     assert_text '日報が更新されました。'
+
+    # 編集したデータの結果確認
+    assert_text '１日目の日報のタイトル（編集後）'
+    assert_text '１日目の日報の内容（編集後）'
   end
 
   # 日報にコメントが投稿できること
@@ -61,5 +69,7 @@ class ReportsTest < ApplicationSystemTestCase
       click_on '削除'
     end
     assert_text '日報が削除されました。'
+
+    assert_no_text('alice no 1st day')
   end
 end
