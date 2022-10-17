@@ -32,7 +32,7 @@ class ReportsTest < ApplicationSystemTestCase
 
     # 登録したデータの結果確認
     assert_text '１日目の日報のタイトル'
-    assert_text  '１日目の日報の内容'
+    assert_text '１日目の日報の内容'
   end
 
   # 日報の編集ができること
