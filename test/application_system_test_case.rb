@@ -3,5 +3,6 @@
 require 'test_helper'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+  Webdrivers::Chromedriver.required_version = '106.0.5249.21'
+  driven_by :selenium, using: :chrome, screen_size: [1000, 800]
 end
